@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-bgcolor"
+        version="1.0.0">
+
+    <name>Cordova Plugin Background Color</name>
+    <description>Simple plugin that set the background color</description>
+    <license>MIT</license>
+    <keywords>cordova,background,color</keywords>
+
+    <engines>
+        <engine name="cordova" version=">=3.6.0"></engine>
+    </engines>
+
+    <preference name="BACKGROUND_COLOR" default="#000000"/>
+
+    <!-- android -->
+    <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BackgroundColor">
+                <param name="android-package" value="com.slkerndnme.cordova.bgcolor.BackgroundColor"/>
+                <param name="onload" value="true"/>
+            </feature>
+        </config-file>
+
+        <config-file target="res/values/strings.xml" parent="/*">
+            <string name="custom_background_color">$BACKGROUND_COLOR</string>
+        </config-file>
+
+        <config-file target="./res/values/strings.xml" parent="/resources">
+            <color name="CUSTOM_BACKGROUND_COLOR">$BACKGROUND_COLOR</color>
+            <style name="Theme.CordovaCustomBackground" parent="@android:style/Theme.NoTitleBar">
+                <item name="android:windowBackground">@color/CUSTOM_BACKGROUND_COLOR</item>
+            </style>
+        </config-file>
+
+        <edit-config file="AndroidManifest.xml" target="/manifest/application/activity[@android:name='MainActivity']"
+                     mode="merge">
+            <activity android:theme="@style/Theme.CordovaCustomBackground"/>
+        </edit-config>
+
+        <source-file src="src/android/BackgroundColor.java" target-dir="src/com/slkerndnme/cordova/bgcolor"/>
+
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="BackgroundColor">
+                <param name="ios-package" value="CDVBackgroundColor"/>
+                <param name="onload" value="true"/>
+            </feature>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="CDVCustomBackgroundColor">
+            <string>$BACKGROUND_COLOR</string>
+        </config-file>
+
+        <header-file src="src/ios/CDVBackgroundColor.h" target-dir="CDVBackgroundColor"/>
+        <source-file src="src/ios/CDVBackgroundColor.m" target-dir="CDVBackgroundColor"/>
+
+    </platform>
+
+</plugin>

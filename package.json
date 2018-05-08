@@ -1,0 +1,38 @@
+{
+  "name": "cordova-plugin-bgcolor",
+  "version": "1.0.2",
+  "description": "Simple plugin to set the background color in a cordova based app",
+  "cordova": {
+    "id": "cordova-plugin-bgcolor",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slkerndnme/cordova-plugin-bgcolor.git"
+  },
+  "keywords": [
+    "cordova",
+    "background",
+    "color",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "engines": [
+    {
+      "name": "cordova-android",
+      "version": ">=3.6.0"
+    }
+  ],
+  "author": "slkerndnme",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/slkerndnme/cordova-plugin-bgcolor/issues"
+  },
+  "homepage": "https://github.com/slkerndnme/cordova-plugin-bgcolor#readme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
