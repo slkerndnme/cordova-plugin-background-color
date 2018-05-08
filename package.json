@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-bgcolor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple plugin to set the background color in a cordova based app",
   "cordova": {
     "id": "cordova-plugin-bgcolor",
