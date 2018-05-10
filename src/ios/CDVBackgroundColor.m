@@ -3,29 +3,21 @@
 
 @implementation CDVBackgroundColor
 
-- (void)pluginInitialize
-{
-    NSString *backgroundColorString = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CDVCustomBackgroundColor"];
+- (void)pluginInitialize {
 
+    NSString *backgroundColorString = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CDVCustomBackgroundColor"];
     UIColor *backgroundColor = [UIColor colorFromHex:backgroundColorString];
 
-    self.webView.opaque=NO;
     self.webView.backgroundColor = backgroundColor;
+    self.viewController.view.backgroundColor = nackgroundColor;
 }
 
-@end
-
-@implementation UIColor (Hex)
-
-+ (UIColor*)colorFromHex:(NSString *)hex
-{
-    unsigned result = 0;
-    NSScanner *scanner = [NSScanner scannerWithString:hex];
-
-    [scanner setScanLocation:0];
-    [scanner scanHexInt:&result];
-
-    return UIColorFromRGB(result);
+- (UIColor *)colorFromHexString:(NSString *)hexString {
+    unsigned rgbValue = 0;
+    NSScanner *scanner = [NSScanner scannerWithString:hexString];
+    [scanner setScanLocation:1]; // bypass '#' character
+    [scanner scanHexInt:&rgbValue];
+    return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
 }
 
 @end
