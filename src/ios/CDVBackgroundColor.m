@@ -6,10 +6,10 @@
 - (void)pluginInitialize {
 
     NSString *backgroundColorString = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CDVCustomBackgroundColor"];
-    UIColor *backgroundColor = [UIColor colorFromHex:backgroundColorString];
+    UIColor *backgroundColor = [self colorFromHexString:backgroundColorString];
 
     self.webView.backgroundColor = backgroundColor;
-    self.viewController.view.backgroundColor = nackgroundColor;
+    self.viewController.view.backgroundColor = backgroundColor;
 }
 
 - (UIColor *)colorFromHexString:(NSString *)hexString {
