@@ -31,7 +31,7 @@
 
         <config-file target="./res/values/strings.xml" parent="/resources">
             <color name="CUSTOM_BACKGROUND_COLOR">$BACKGROUND_COLOR</color>
-            <style name="Theme.CordovaCustomBackground" parent="@android:style/Theme.Material">
+            <style name="Theme.CordovaCustomBackground" parent="@android:style/Theme.NoTitleBar">
                 <item name="android:windowBackground">@color/CUSTOM_BACKGROUND_COLOR</item>
             </style>
         </config-file>
